@@ -4,7 +4,7 @@ import banner from "../assets/banner.png";
 
 export default function BannerSection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-5 py-5 sm:px-6 sm:py-6">
+    <section className="mx-auto w-full max-w-7xl px-5 py-5 sm:px-6 sm:py-6">
       <div className="grid min-h-[280px] grid-cols-1 items-center gap-2 rounded-lg border border-white/[0.07] bg-[#1b1d22] px-5 py-5 sm:px-8 sm:py-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:px-9">
         <div className="w-full lg:max-w-[600px]">
           <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.08em] text-[#ccff00]">

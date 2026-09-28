@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <header className="border-b border-white/[0.07] bg-[#141619]">
-      <nav className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto] items-center gap-y-3 px-5 py-4 sm:flex sm:justify-between sm:px-6 sm:py-4">
+      <nav className="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-y-3 px-5 py-4 sm:flex sm:justify-between sm:px-6 sm:py-4">
         <Link href="/" className="flex items-center gap-2.5">
           <Image src={logo} alt="" width={23} height={23} />
           <span className="font-(family-name:--font-oswald) text-xl font-bold leading-none text-[#f5f7f7] sm:text-2xl">

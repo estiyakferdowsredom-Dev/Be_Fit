@@ -5,7 +5,7 @@ export default function Workouts() {
     return (
         <main className="flex-1 bg-[#141619] text-white">
             <Navbar />
-            <section className="mx-auto max-w-6xl px-6 py-10">
+            <section className="mx-auto max-w-7xl px-6 py-10">
                 <h1 className="font-(family-name:--font-oswald) text-3xl font-bold uppercase">
                     Workouts
                 </h1>

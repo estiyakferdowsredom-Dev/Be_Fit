@@ -11,7 +11,7 @@ export default async function WorkoutLibrary() {
       aria-labelledby="library-heading"
       className="scroll-mt-6 border-t border-white/[0.07] px-5 py-8 sm:px-6 sm:py-10"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <div className="mb-4 flex flex-col gap-1.5">
           <div>
             <h2

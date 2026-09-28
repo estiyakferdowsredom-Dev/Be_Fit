@@ -19,7 +19,7 @@ export default async function WorkoutDetailPage({
   return (
     <main className="flex-1 bg-[#141619] text-white">
       <Navbar />
-      <article className="mx-auto grid w-full max-w-6xl gap-6 px-5 py-6 sm:px-6 sm:py-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-9 lg:py-9">
+      <article className="mx-auto grid w-full max-w-7xl gap-6 px-5 py-6 sm:px-6 sm:py-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-9 lg:py-9">
         <div className="relative aspect-4/3 w-full overflow-hidden rounded-lg border border-white/[0.07] bg-[#1b1d22] lg:aspect-4/5">
             <Image
               src={workout.image}
