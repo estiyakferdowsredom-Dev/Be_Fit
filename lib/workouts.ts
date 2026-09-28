@@ -14,9 +14,12 @@ export type Workout = {
   instructions: string[];
 };
 
-const workoutsUrl = "https://api.abcz.workers.dev/api/fitlog";
-
 export async function getWorkouts(): Promise<Workout[]> {
+  const workoutsUrl = process.env.WORKOUTS_API_URL;
+  if (!workoutsUrl) {
+    throw new Error("WORKOUTS_API_URL environment variable is required");
+  }
+
   try {
     const response = await fetch(workoutsUrl, { next: { revalidate: 3600 } });
     if (!response.ok) {
