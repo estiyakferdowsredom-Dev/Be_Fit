@@ -20,6 +20,23 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
   const [sortKey, setSortKey] = useState<SortKey>("duration");
   const [toast, setToast] = useState("");
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const showToast = (message: string) => {
+    setToast(message);
+    if (toastTimer.current) {
+      clearTimeout(toastTimer.current);
+    }
+    toastTimer.current = setTimeout(() => setToast(""), 3000);
+  };
+
+  useEffect(
+    () => () => {
+      if (toastTimer.current) {
+        clearTimeout(toastTimer.current);
+      }
+    },
+    [],
+  );
+
   const planIdsSnapshot = useSyncExternalStore(
     subscribeToWorkoutCollections,
     () => getWorkoutIdsSnapshot("todayPlan"),
@@ -54,23 +71,6 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
   const totalCalories = plannedWorkouts.reduce(
     (total, workout) => total + workout.caloriesBurned,
     0,
-  );
-
-  function showToast(message: string) {
-    setToast(message);
-    if (toastTimer.current) {
-      clearTimeout(toastTimer.current);
-    }
-    toastTimer.current = setTimeout(() => setToast(""), 3000);
-  }
-
-  useEffect(
-    () => () => {
-      if (toastTimer.current) {
-        clearTimeout(toastTimer.current);
-      }
-    },
-    [],
   );
 
   return (
@@ -225,7 +225,16 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
                         disabled={completedIds.includes(workout.id)}
                         className="inline-flex min-h-8 items-center gap-1.5 rounded-md bg-[#ccff00] px-3 text-[9px] font-bold text-black transition hover:bg-[#dcff66] disabled:cursor-default disabled:bg-[#34400b] disabled:text-[#d9ff66]"
                       >
-                        <svg aria-hidden="true" viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 16 16"
+                          className="h-3.5 w-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
                           <path d="m3 8 3.2 3.2L13 4.5" />
                         </svg>
                         {completedIds.includes(workout.id) ? "Completed" : "Mark as Done"}
@@ -237,14 +246,12 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
                       onClick={() => {
                         removeWorkout(activeTab, workout.id);
                         showToast(
-                          `${workout.name} removed from ${activeTab === "todayPlan" ? "today's plan" : "saved workouts"}`,
+                          `Removed ${workout.name} from ${activeTab === "todayPlan" ? "today's plan" : "saved workouts"}`,
                         );
                       }}
                       className="inline-flex min-h-8 min-w-8 items-center justify-center rounded-md px-2 text-sm text-zinc-500 transition hover:text-red-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-400"
                     >
-                      <svg aria-hidden="true" viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-                        <path d="m4 4 8 8M12 4l-8 8" />
-                      </svg>
+                      <span aria-hidden="true">×</span>
                     </button>
                 </div>
               </article>

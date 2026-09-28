@@ -17,6 +17,8 @@ FitLog is a workout library and daily training planner. Browse exercises, review
 3. **Daily plan**: Add up to five workouts to today's plan and mark completed exercises.
 4. **Saved workouts**: Keep a separate collection of workouts to try later.
 5. **Plan sorting and stats**: Sort the active collection by duration, calories, or rating, and see the plan's exercise count, total time, and calories.
+5. **Calorie Calculate**: Calculate the calorie burn.
+
 
 ## Run Locally
 
