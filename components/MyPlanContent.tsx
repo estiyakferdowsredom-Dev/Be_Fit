@@ -118,7 +118,7 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
               aria-label="Sort workouts"
               value={sortKey}
               onChange={(event) => setSortKey(event.target.value as SortKey)}
-              className="h-8 appearance-none rounded-md border border-white/[0.08] bg-[#1b1d22] py-0 pl-2 pr-7 text-[10px] text-zinc-200 outline-none focus:border-[#ccff00]/50"
+              className="h-8 appearance-none rounded-md border border-white/[0.08] bg-[#1b1d22] py-1 pl-2 pr-7 text-[10px] text-zinc-200 outline-none focus:border-[#ccff00]/50"
             >
               <option value="duration">Duration</option>
               <option value="caloriesBurned">Calories</option>
@@ -127,7 +127,7 @@ export default function MyPlanContent({ workouts }: { workouts: Workout[] }) {
             <svg
               aria-hidden="true"
               viewBox="0 0 16 16"
-              className="pointer-events-none absolute top-1/2 right-2 h-3.5 w-3.5 -translate-y-1/2 text-zinc-400"
+              className="pointer-events-none absolute top-1/2 right-2 h-3 w-3 -translate-y-1/2 text-zinc-400"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
